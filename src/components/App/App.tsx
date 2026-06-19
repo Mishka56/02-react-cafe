@@ -30,15 +30,22 @@ export default function App() {
   };
 const totalVotes = votes.good + votes.neutral + votes.bad;
 const positiveRate = totalVotes > 0 ? Math.round((votes.good / totalVotes) * 100): 0;
+ 
   return ( 
-    <>
   
       <div className={css.app}>
       <CafeInfo title="Sip Happens Cafe" description="Please rate our service by selecting one of the options below."/>
         <VoteOptions onVote={handleVote} onReset={resetVotes} canReset={totalVotes > 0} />
-      <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} />
-   <Notifications totalVotes={totalVotes}/>
-      </div> 
-    </>  
+      {/* <VoteStats votes={votes} totalVotes={totalVotes} positiveRate={positiveRate} /> */}
+   {totalVotes > 0 ? (
+      <VoteStats 
+        votes={votes} 
+        totalVotes={totalVotes} 
+        positiveRate={positiveRate} 
+      />
+    ) : (
+          <Notifications />
+    )}
+      </div>  
   );
 }
