@@ -4,7 +4,7 @@ import css from "./App.module.css"
 import { useState } from 'react'
 import type Votes from "../../types/votes";
 export type VoteType = keyof Votes
-import VoteStats from "../VoteStates/VoteStates";
+import VoteStats from "../VoteStats/VoteStats";
 import Notifications from "../Notification/Notifications";
 
 export default function App() {
